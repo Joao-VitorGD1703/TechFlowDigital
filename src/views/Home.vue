@@ -45,11 +45,11 @@ console.log(teste.value);
 
         <div :class="{'md:hidden p-2 border-b border-b-stone-950 transition-all duration-300': teste === true, 'hidden transition-all duration-300': teste === false}">
           <ul :class="{'flex flex-col space-y-2 transition-all duration-300': teste === true,  'hidden transition-all duration-300': teste === false}">
-            <a href="#container-02">Sobre nós</a>
-            <a href="#container-03">Serviços</a>
-            <a href="#container-05">Projetos</a>
-            <a href="#container-04">Vantagem</a>
-            <a href="#container-08">Contate-nos</a>
+            <a class=" h-14" href="#container-02">Sobre nós</a>
+            <a class=" h-14" href="#container-03">Serviços</a>
+            <a class=" h-14" href="#container-05">Projetos</a>
+            <a class=" h-14" href="#container-04">Vantagem</a>
+            <a class=" h-14" href="#container-08">Contate-nos</a>
           </ul>
         </div>
        
