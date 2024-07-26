@@ -1,12 +1,49 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
 import 'alpinejs'
+import  emailjs  from '@emailjs/browser';
+import { useToast } from '@/composables/Utils';
+
 let teste = ref(false)
 const open= () =>{
 teste.value = !teste.value
 console.log(teste.value);
 }
 
+let name = ref('')
+let email = ref('')
+let assunto = ref('')
+let message = ref('')
+let sendEmail =(e)=>{
+    e.preventDefault();
+    if(name == '' || email == '' || assunto == '' || message == ''){
+        alert('Preencha todos os campos');
+    }
+    const templateParms = {
+        from_name: name.value,
+        email: email.value,
+        message: message.value,
+        assunto: assunto.value,
+    }
+    console.log(templateParms);
+    emailjs.send('service_k36386o', 'template_x17ut6h', templateParms, 'F8LPldd25yldNb-Wd')
+    .then((response)=>{
+        console.log("Email enviado", response.status, response.text);
+        name.value= ''
+        email.value= ''
+        assunto.value= ''
+        message.value= ''
+        useToast().success('Email enviado!', {
+            timeout: 2500, 
+            style: { fontSize: '16px',
+                width: '250px',
+                height: '50px'
+             } 
+        })
+    },(err)=>{
+        console.log('Erro', err);
+    })
+}
 
 </script>
 
@@ -33,43 +70,40 @@ console.log(teste.value);
         </div>
 
       </header> -->
-      <header class="md:grid md:grid-cols-3 md:items-center md:border-b md:border-b-stone-950 md:py-2">
+      <header class="w-full md:w-9/12 mx-auto bg-white fixed top-0 left-0 right-0 z-10">
         <!-- Mobile Header -->
         <div class="md:hidden flex justify-between items-center p-2 border-b border-b-stone-950">
-          <h4 class="text-left"><a class="text-2xl bold" href="container-01">TechFlow <span style="color: #77dd77;">Digital</span>.</a></h4>
-
+          <h4 class="text-left"><a class="text-2xl bold" href="#container-01">TechFlow <span style="color: #77dd77;">Digital</span>.</a></h4>
           <button @click="open" class="border bg-black text-stone-50 p-1 w-1/3 border-neutral-950">Menu</button>
         </div>
-    
+  
         <!-- Mobile Menu -->
-
-        <div :class="{'md:hidden p-2 border-b border-b-stone-950 transition-all duration-300': teste === true, 'hidden transition-all duration-300': teste === false}">
-          <ul :class="{'flex flex-col space-y-2 transition-all duration-300': teste === true,  'hidden transition-all duration-300': teste === false}">
-            <a class=" h-14" href="#container-02">Sobre nós</a>
-            <a class=" h-14" href="#container-03">Serviços</a>
-            <a class=" h-14" href="#container-05">Projetos</a>
-            <a class=" h-14" href="#container-04">Vantagem</a>
-            <a class=" h-14" href="#container-08">Contate-nos</a>
+        <div class="bg-white" :class="{'md:hidden p-2 border-b border-b-stone-950 transition-all duration-300': teste === true, 'hidden transition-all duration-300': teste === false}">
+          <ul :class="{'flex flex-col space-y-2 transition-all duration-300': teste === true, 'hidden transition-all duration-300': teste === false}">
+            <a class="h-14" href="#container-02">Sobre nós</a>
+            <a class="h-14" href="#container-03">Serviços</a>
+            <a class="h-14" href="#container-05">Projetos</a>
+            <a class="h-14" href="#container-04">Vantagem</a>
+            <a class="h-14" href="#container-08">Contate-nos</a>
           </ul>
         </div>
-       
-    
+  
         <!-- Desktop Header -->
-        <div class="hidden md:block col-span-1">
-          <h4 class="text-left"><a class="text-2xl bold" href="container-01">TechFlow <span style="color: #77dd77;">Digital</span>.</a></h4>
-        </div>
-    
-        <div class="hidden md:flex col-span-1 justify-center">
-          <ul class="flex flex-row space-x-4">
-            <a href="#container-02">Sobre nós</a>
-            <a href="#container-03">Serviços</a>
-            <a href="#container-05">Projetos</a>
-            <a href="#container-04">Vantagem</a>
-          </ul>
-        </div>
-    
-        <div class="hidden md:block col-span-1 text-right">
-          <button class="border bg-black text-stone-50 p-1 border-neutral-950 w-28"><a href="#container-08">Contate-nos</a></button>
+        <div class="hidden md:grid md:grid-cols-4 md:items-center md:border-b md:border-b-stone-950 md:py-2">
+          <div class="col-span-1 ">
+            <h4 class="text-left"><a class="text-2xl bold" href="#container-01">TechFlow <span style="color: #77dd77;">Digital</span>.</a></h4>
+          </div>
+          <div class="col-span-2 flex justify-center">
+            <ul class="flex flex-row w-full space-x-5 ">
+              <a href="#container-02">Sobre nós</a>
+              <a href="#container-03">Serviços</a>
+              <a href="#container-05">Projetos</a>
+              <a href="#container-04">Vantagem</a>
+            </ul>
+          </div>
+          <div class="col-span-1  text-right ">
+            <button class="border bg-black text-stone-50 p-1 border-neutral-950 w-28"><a href="#container-08">Contate-nos</a></button>
+          </div>
         </div>
       </header>
     
@@ -81,7 +115,7 @@ console.log(teste.value);
             e
             Criatividade</p>
         </div>
-        <div class="w-5/12 flex flex-col space-y-1 md:space-y-0 md:space-x-1 md:flex-row items-center md:justify-around border md:w-2/12">
+        <div class="w-5/12 flex flex-col space-y-1 md:space-y-0 md:space-x-1 md:flex-row items-center md:justify-around border md:w-3/12">
           <button class="w-full border bg-black text-stone-50 py-1 border-neutral-950">Contato</button>
           <button class="w-full border bg-lime-500 text-black py-1 border-neutral-950">Saiba mais</button>
       </div>
