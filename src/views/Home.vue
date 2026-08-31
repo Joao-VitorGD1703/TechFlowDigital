@@ -12,26 +12,28 @@ console.log(teste.value);
 
 let name = ref('')
 let email = ref('')
-let assunto = ref('')
+let phone = ref('')
 let message = ref('')
 let sendEmail =(e)=>{
     e.preventDefault();
-    if(name == '' || email == '' || assunto == '' || message == ''){
-        alert('Preencha todos os campos');
+    if(name.value == '' || email.value == '' || message.value == ''){
+        alert('Preencha todos os campos obrigatórios');
+        return;
     }
     const templateParms = {
         from_name: name.value,
         email: email.value,
+        phone: phone.value,
         message: message.value,
-        assunto: assunto.value,
     }
-    console.log(templateParms);
-    emailjs.send('service_k36386o', 'template_x17ut6h', templateParms, 'F8LPldd25yldNb-Wd')
+    console.log('Enviando...', templateParms);
+    // Substitua 'SEU_TEMPLATE_ID' e 'SUA_PUBLIC_KEY' pelos seus dados reais do EmailJS
+    emailjs.send('service_qer71bv', 'template_kaicipi', templateParms, 'F8LPldd25yldNb-Wd')
     .then((response)=>{
         console.log("Email enviado", response.status, response.text);
         name.value= ''
         email.value= ''
-        assunto.value= ''
+        phone.value= ''
         message.value= ''
         useToast().success('Email enviado!', {
             timeout: 2500, 
@@ -42,6 +44,7 @@ let sendEmail =(e)=>{
         })
     },(err)=>{
         console.log('Erro', err);
+        alert('Ocorreu um erro ao enviar o email. Tente novamente mais tarde.');
     })
 }
 
@@ -664,7 +667,7 @@ let sendEmail =(e)=>{
                             <span>Fale Conosco</span>
                             <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                         </button>
-                        <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" class="bg-white text-gray-900 px-8 py-4 rounded-xl hover:bg-gray-100 transition-all font-bold text-lg shadow-xl cursor-pointer whitespace-nowrap hover:scale-105 flex items-center space-x-2">
+                        <a href="https://wa.me/5511982139034" target="_blank" rel="noopener noreferrer" class="bg-white text-gray-900 px-8 py-4 rounded-xl hover:bg-gray-100 transition-all font-bold text-lg shadow-xl cursor-pointer whitespace-nowrap hover:scale-105 flex items-center space-x-2">
                             <i class="fa-brands fa-whatsapp text-xl text-[#77dd77]"></i>
                             <span>WhatsApp</span>
                         </a>
@@ -691,8 +694,9 @@ let sendEmail =(e)=>{
                             </div>
                             <div>
                                 <div class="text-sm text-gray-500 font-semibold mb-1">Email</div>
-                                <a href="mailto:contato@techflow.digital" class="text-gray-900 font-bold hover:text-[#77dd77] transition-colors">contato@techflow.digital</a>
+                                <a href="mailto:techflowdigitallmtd@gmail.com" class="text-gray-900 font-bold hover:text-[#77dd77] transition-colors">techflowdigitallmtd@gmail.com</a>
                             </div>
+
                         </div>
 
                         <div class="flex items-center space-x-4 bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-all group cursor-pointer border border-gray-100 hover:border-[#77dd77]/30">
@@ -701,7 +705,7 @@ let sendEmail =(e)=>{
                             </div>
                             <div>
                                 <div class="text-sm text-gray-500 font-semibold mb-1">Telefone</div>
-                                <a href="tel:+5511999999999" class="text-gray-900 font-bold hover:text-[#77dd77] transition-colors">+55 (11) 99999-9999</a>
+                                <a href="tel:+5511982139034" class="text-gray-900 font-bold hover:text-[#77dd77] transition-colors">+55 (11) 98213-9034</a>
                             </div>
                         </div>
 
@@ -711,7 +715,7 @@ let sendEmail =(e)=>{
                             </div>
                             <div>
                                 <div class="text-sm text-gray-500 font-semibold mb-1">WhatsApp</div>
-                                <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" class="text-gray-900 font-bold hover:text-[#77dd77] transition-colors">Iniciar conversa</a>
+                                <a href="https://wa.me/5511982139034" target="_blank" rel="noopener noreferrer" class="text-gray-900 font-bold hover:text-[#77dd77] transition-colors">Iniciar conversa</a>
                             </div>
                         </div>
                     </div>
@@ -719,22 +723,22 @@ let sendEmail =(e)=>{
 
                 <div class="relative">
                     <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-10 border-2 border-gray-100">
-                        <form id="contact-form" data-readdy-form="true" class="space-y-6">
+                        <form id="contact-form" @submit="sendEmail" class="space-y-6">
                             <div>
                                 <label for="name" class="block text-sm font-bold text-gray-700 mb-2">Nome Completo *</label>
-                                <input id="name" required="" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#77dd77] focus:outline-none transition-colors text-gray-900 font-medium" placeholder="Seu nome" type="text" value="" name="name">
+                                <input id="name" v-model="name" required="" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#77dd77] focus:outline-none transition-colors text-gray-900 font-medium" placeholder="Seu nome" type="text" name="name">
                             </div>
                             <div>
                                 <label for="email" class="block text-sm font-bold text-gray-700 mb-2">Email *</label>
-                                <input id="email" required="" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#77dd77] focus:outline-none transition-colors text-gray-900 font-medium" placeholder="seu@email.com" type="email" value="" name="email">
+                                <input id="email" v-model="email" required="" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#77dd77] focus:outline-none transition-colors text-gray-900 font-medium" placeholder="seu@email.com" type="email" name="email">
                             </div>
                             <div>
                                 <label for="phone" class="block text-sm font-bold text-gray-700 mb-2">Telefone</label>
-                                <input id="phone" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#77dd77] focus:outline-none transition-colors text-gray-900 font-medium" placeholder="(11) 99999-9999" type="tel" value="" name="phone">
+                                <input id="phone" v-model="phone" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#77dd77] focus:outline-none transition-colors text-gray-900 font-medium" placeholder="(11) 98213-9034" type="tel" name="phone">
                             </div>
                             <div>
                                 <label for="message" class="block text-sm font-bold text-gray-700 mb-2">Mensagem * (0/500)</label>
-                                <textarea id="message" name="message" required="" maxlength="500" rows="4" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#77dd77] focus:outline-none transition-colors resize-none text-gray-900 font-medium" placeholder="Conte-nos sobre seu projeto..."></textarea>
+                                <textarea id="message" v-model="message" name="message" required="" maxlength="500" rows="4" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#77dd77] focus:outline-none transition-colors resize-none text-gray-900 font-medium" placeholder="Conte-nos sobre seu projeto..."></textarea>
                             </div>
                             <button type="submit" class="w-full bg-gray-900 text-white px-8 py-4 rounded-xl hover:bg-[#77dd77] transition-all font-bold text-lg shadow-xl hover:shadow-2xl cursor-pointer whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105 flex items-center justify-center space-x-2">
                                 <span>Enviar Mensagem</span>
@@ -812,14 +816,14 @@ let sendEmail =(e)=>{
                             <i class="fa-solid fa-envelope text-[#77dd77] text-xl mt-1"></i>
                             <div>
                                 <div class="text-sm text-gray-500 mb-1">Email</div>
-                                <a href="mailto:contato@techflow.digital" class="text-gray-300 hover:text-[#77dd77] transition-colors">contato@techflow.digital</a>
+                                <a href="mailto:techflowdigitallmtd@gmail.com" class="text-gray-300 hover:text-[#77dd77] transition-colors">techflowdigitallmtd@gmail.com</a>
                             </div>
                         </li>
                         <li class="flex items-start space-x-3">
                             <i class="fa-solid fa-phone text-[#77dd77] text-xl mt-1"></i>
                             <div>
                                 <div class="text-sm text-gray-500 mb-1">Telefone</div>
-                                <a href="tel:+5511999999999" class="text-gray-300 hover:text-[#77dd77] transition-colors">+55 (11) 99999-9999</a>
+                                <a href="tel:+5511982139034" class="text-gray-300 hover:text-[#77dd77] transition-colors">+55 (11) 98213-9034</a>
                             </div>
                         </li>
                         <li class="flex items-start space-x-3">
