@@ -51,8 +51,8 @@ let sendEmail =(e)=>{
 </script>
 
 <template>
-  <main class="flex-col w-full  h-auto  ">
-    <div class=" w-full  flex-col md:w-9/12  mx-auto">
+  <main class="flex-col w-full h-auto overflow-x-hidden">
+    <div class="w-full flex-col md:w-9/12 mx-auto">
       <!-- <header class=" hidden md:grid md:grid-cols-3 md:items-center md:border-b md:border-b-stone-950 md:py-2">
 
         <div class="col-span-1">
@@ -134,7 +134,7 @@ let sendEmail =(e)=>{
                         <div class="w-2 h-2 bg-[#77dd77] rounded-full animate-pulse"></div>
                         <span class="text-gray-700 text-sm font-semibold tracking-wide">Transformando ideias em realidade digital</span>
                     </div>
-                    <h1 class="text-5xl md:text-7xl font-black text-gray-900 mb-6 leading-[1.1]">
+                    <h1 class="text-4xl sm:text-5xl md:text-7xl font-black text-gray-900 mb-6 leading-[1.1]">
                         Visibilidade<br>
                         <span class="relative inline-block">
                             <span class="text-[#77dd77]">digital</span>
@@ -144,7 +144,7 @@ let sendEmail =(e)=>{
                         </span>
                         para sua<br>marca <span class="text-[#77dd77]">decolar</span>
                     </h1>
-                    <p class="text-xl text-gray-600 mb-10 leading-relaxed max-w-xl">
+                    <p class="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed max-w-xl">
                         Transforme suas ideias em websites de sucesso. Conquiste seu espaço online com nossa experiência e criatividade.
                     </p>
                     <div class="flex flex-col sm:flex-row items-start gap-4 mb-12">
@@ -152,11 +152,11 @@ let sendEmail =(e)=>{
                             Começar Agora
                             <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform inline-block"></i>
                         </button>
-                        <button class="bg-white text-gray-900 px-8 py-4 rounded-xl border-2 border-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-300 font-bold text-lg cursor-pointer whitespace-nowrap hover:scale-105">
+                        <button class="w-full sm:w-auto bg-white text-gray-900 px-8 py-4 rounded-xl border-2 border-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-300 font-bold text-lg cursor-pointer whitespace-nowrap hover:scale-105">
                             Saiba mais
                         </button>
                     </div>
-                    <div class="flex flex-row gap-8">
+                    <div class="flex flex-wrap gap-4 sm:gap-8">
                         <div>
                             <div class="text-4xl font-black text-[#77dd77] mb-1">50+</div>
                             <div class="text-gray-600 text-sm font-medium">Projetos</div>
@@ -214,16 +214,16 @@ let sendEmail =(e)=>{
                                 <img alt="TechFlow Team" class="w-full h-full object-cover rounded-2xl" src="https://readdy.ai/api/search-image?query=Modern%20creative%20tech%20team%20working%20together%20on%20innovative%20web%20projects%20in%20bright%20contemporary%20office%20space%20with%20laptops%20tablets%20and%20design%20tools%20collaborative%20workspace%20natural%20lighting%20professional%20photography%20diverse%20team%20members%20brainstorming%20ideas&amp;width=700&amp;height=500&amp;seq=about-team-001&amp;orientation=landscape">
                             </div>
                         </div>
-                        <div class="absolute -bottom-8 -right-8 bg-[#77dd77] text-white px-8 py-6 rounded-2xl shadow-2xl transform rotate-3 hover:rotate-6 transition-transform z-20">
-                            <div class="text-4xl font-black mb-1">5+</div>
-                            <div class="text-sm font-bold">Anos de Experiência</div>
+                        <div class="absolute -bottom-4 -right-4 md:-bottom-8 md:-right-8 bg-[#77dd77] text-white px-6 md:px-8 py-4 md:py-6 rounded-2xl shadow-2xl transform rotate-3 hover:rotate-6 transition-transform z-20">
+                            <div class="text-3xl md:text-4xl font-black mb-1">5+</div>
+                            <div class="text-xs md:text-sm font-bold">Anos de Experiência</div>
                         </div>
-                        <div class="absolute -top-8 -left-8 bg-gray-900 text-white px-8 py-6 rounded-2xl shadow-2xl transform -rotate-3 hover:-rotate-6 transition-transform z-20">
-                            <div class="flex items-center space-x-3">
-                                <i class="fa-solid fa-star text-[#77dd77] text-3xl"></i>
+                        <div class="absolute -top-4 -left-4 md:-top-8 md:-left-8 bg-gray-900 text-white px-6 md:px-8 py-4 md:py-6 rounded-2xl shadow-2xl transform -rotate-3 hover:-rotate-6 transition-transform z-20">
+                            <div class="flex items-center space-x-2 md:space-x-3">
+                                <i class="fa-solid fa-star text-[#77dd77] text-2xl md:text-3xl"></i>
                                 <div>
-                                    <div class="text-3xl font-black">98%</div>
-                                    <div class="text-xs font-bold">Satisfação</div>
+                                    <div class="text-2xl md:text-3xl font-black">98%</div>
+                                    <div class="text-[10px] md:text-xs font-bold">Satisfação</div>
                                 </div>
                             </div>
                         </div>
@@ -232,7 +232,7 @@ let sendEmail =(e)=>{
                 
                 <div class="order-1 lg:order-2">
                     <div class="inline-block bg-[#77dd77]/10 text-[#77dd77] px-5 py-2 rounded-full text-sm font-bold mb-6 border border-[#77dd77]/20">Sobre a TechFlow</div>
-                    <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-6 leading-tight">Transformando <span class="text-[#77dd77]">ideias</span> em realidade digital</h2>
+                    <h2 class="text-3xl md:text-5xl font-black text-gray-900 mb-6 leading-tight">Transformando <span class="text-[#77dd77]">ideias</span> em realidade digital</h2>
                     <p class="text-lg text-gray-600 mb-8 leading-relaxed">A TechFlow Digital nasce com o objetivo de criar sites impactantes e funcionais, focados em multi page e portfólios. Valorizamos o comprometimento e a criatividade, atendendo empresas e microempreendedores que buscam uma presença online confiável e acessível.</p>
                     <p class="text-lg text-gray-600 mb-10 leading-relaxed">Inspirados pela cultura Tech, oferecemos soluções minimalistas e práticas, utilizando a mais alta tecnologia para garantir a satisfação e a recomendação espontânea dos nossos clientes.</p>
                     
@@ -276,8 +276,8 @@ let sendEmail =(e)=>{
                     <i class="fa-solid fa-briefcase text-[#77dd77]"></i>
                     <span class="text-[#77dd77] text-sm font-bold tracking-wide">Nossos Serviços</span>
                 </div>
-                <h2 class="text-4xl md:text-6xl font-black text-gray-900 mb-6 leading-tight">Soluções <span class="text-[#77dd77]">completas</span><br>para seu sucesso digital</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">Oferecemos uma gama completa de serviços para transformar sua presença online</p>
+                <h2 class="text-3xl md:text-6xl font-black text-gray-900 mb-6 leading-tight">Soluções <span class="text-[#77dd77]">completas</span><br>para seu sucesso digital</h2>
+                <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">Oferecemos uma gama completa de serviços para transformar sua presença online</p>
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -385,13 +385,12 @@ let sendEmail =(e)=>{
         <div class="absolute bottom-40 right-10 w-72 h-72 bg-[#77dd77]/5 rounded-full blur-3xl"></div>
         <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
             <div class="text-center mb-20">
-                <div class="inline-flex items-center space-x-2 bg-[#77dd77]/10 px-5 py-3 rounded-full mb-6 border border-[#77dd77]/20
-                w-36">
+                <div class="inline-flex items-center space-x-2 bg-[#77dd77]/10 px-5 py-3 rounded-full mb-6 border border-[#77dd77]/20 w-36">
                     <i class="fa-solid fa-folder-open text-[#77dd77]"></i>
                     <span class="text-[#77dd77] text-sm font-bold tracking-wide">Portfólio</span>
                 </div>
-                <h2 class="text-4xl md:text-6xl font-black text-gray-900 mb-6 leading-tight">Trabalhos que nos<br><span class="text-[#77dd77]">orgulham</span></h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">Conheça alguns dos projetos desenvolvidos com dedicação e criatividade</p>
+                <h2 class="text-3xl md:text-6xl font-black text-gray-900 mb-6 leading-tight">Trabalhos que nos<br><span class="text-[#77dd77]">orgulham</span></h2>
+                <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">Conheça alguns dos projetos desenvolvidos com dedicação e criatividade</p>
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -559,8 +558,8 @@ let sendEmail =(e)=>{
                     <i class="fa-solid fa-star text-[#77dd77]"></i>
                     <span class="text-[#77dd77] text-sm font-bold tracking-wide">Por que escolher a TechFlow</span>
                 </div>
-                <h2 class="text-4xl md:text-6xl font-black text-gray-900 mb-6 leading-tight">Vantagens que fazem<br>a <span class="text-[#77dd77]">diferença</span></h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">Trabalhamos com dedicação para oferecer o melhor serviço e garantir sua satisfação total</p>
+                <h2 class="text-3xl md:text-6xl font-black text-gray-900 mb-6 leading-tight">Vantagens que fazem<br>a <span class="text-[#77dd77]">diferença</span></h2>
+                <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">Trabalhamos com dedicação para oferecer o melhor serviço e garantir sua satisfação total</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
@@ -684,8 +683,8 @@ let sendEmail =(e)=>{
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div>
                     <div class="inline-block bg-[#77dd77]/10 text-[#77dd77] px-5 py-2 rounded-full text-sm font-bold mb-6 border border-[#77dd77]/20">Entre em Contato</div>
-                    <h2 class="text-4xl md:text-6xl font-black text-gray-900 mb-6 leading-tight">Vamos criar algo<br><span class="text-[#77dd77]">incrível juntos</span></h2>
-                    <p class="text-xl text-gray-600 mb-10 leading-relaxed">Estamos prontos para transformar suas ideias em realidade. Entre em contato e vamos conversar sobre seu projeto!</p>
+                    <h2 class="text-3xl md:text-6xl font-black text-gray-900 mb-6 leading-tight">Vamos criar algo<br><span class="text-[#77dd77]">incrível juntos</span></h2>
+                    <p class="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed">Estamos prontos para transformar suas ideias em realidade. Entre em contato e vamos conversar sobre seu projeto!</p>
                     
                     <div class="space-y-4 mb-10">
                         <div class="flex items-center space-x-4 bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-all group cursor-pointer border border-gray-100 hover:border-[#77dd77]/30">
@@ -811,12 +810,12 @@ let sendEmail =(e)=>{
                 <!-- Contact -->
                 <div>
                     <h4 class="text-lg font-black mb-6 text-[#77dd77]">Contato</h4>
-                    <ul class="space-y-4">
+                    <ul class="space-y-4 text-left">
                         <li class="flex items-start space-x-3">
                             <i class="fa-solid fa-envelope text-[#77dd77] text-xl mt-1"></i>
-                            <div>
+                            <div class="overflow-hidden">
                                 <div class="text-sm text-gray-500 mb-1">Email</div>
-                                <a href="mailto:techflowdigitallmtd@gmail.com" class="text-gray-300 hover:text-[#77dd77] transition-colors">techflowdigitallmtd@gmail.com</a>
+                                <a href="mailto:techflowdigitallmtd@gmail.com" class="text-gray-300 hover:text-[#77dd77] transition-colors break-all">techflowdigitallmtd@gmail.com</a>
                             </div>
                         </li>
                         <li class="flex items-start space-x-3">
